@@ -14,7 +14,12 @@ module.exports = function (app, passport) {
   app.get('/', authenticated, (req, res) => res.render('index'))
 
   app.get('/users', (req, res) => userController.getUsers(req, res))
-  app.get('/tasks', taskController.getTasks)
+
+  app.get('/tasks', authenticated, (req, res) => taskController.getTasks(req, res))
+  app.get('/tasks/:id', taskController.getTasks)
+  app.post('/tasks', taskController.postTask)
+  app.put('/tasks/:id', taskController.putTask)
+  app.delete('/tasks/:id', taskController.deleteTask)
 
   app.get('/signin', (req, res) => res.render('signin'))
   app.post('/signin', 
