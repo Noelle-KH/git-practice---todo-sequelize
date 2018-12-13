@@ -1,15 +1,12 @@
 const session = require('express-session')
 const express = require('express')
 const handlebars = require('express-handlebars')
-const bodyParser= require('body-parser')
+const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 const app = express()
 const port = 3000
 
 const db = require('./models')
-const User = db.User
-const Task = db.Task
-
 const passport = require('./config/passport')
 
 app.engine('handlebars', handlebars({defaultLayout: 'main'}))

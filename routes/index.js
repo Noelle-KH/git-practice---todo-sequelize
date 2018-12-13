@@ -1,10 +1,11 @@
+const bcrypt = require('bcrypt-nodejs')
 const taskController = require('../controllers/taskController.js')
 const userController = require('../controllers/userController.js')
-const User = require('../models/user')
+const db = require('../models')
+const User = db.User
 
-module.exports = function (app, passport) {
-
-  function authenticated (req, res, next) {
+module.exports = (app, passport) => {
+  const authenticated = (req, res, next) => {
     if (req.isAuthenticated()) {
       return next()
     }
@@ -22,9 +23,9 @@ module.exports = function (app, passport) {
   app.delete('/tasks/:id', taskController.deleteTask)
 
   app.get('/signin', (req, res) => res.render('signin'))
-  app.post('/signin', 
-    passport.authenticate('local', { failureRedirect: '/signin',}),
-    function(req, res) {
+  app.post('/signin',
+    passport.authenticate('local', {failureRedirect: '/signin'}),
+    (req, res) => {
       res.redirect('/')
     }
   )
@@ -32,4 +33,16 @@ module.exports = function (app, passport) {
     req.logout()
     res.redirect('/signin')
   })
-};
+
+  app.get('/signup', (req, res) => {
+    return res.render('signup')
+  })
+  app.post('/signup', (req, res) => {
+    User.create({
+      username: req.body.username,
+      password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10), null)
+    }).then(user => {
+      return res.redirect('/signin')
+    })
+  })
+}
