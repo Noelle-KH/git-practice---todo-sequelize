@@ -12,7 +12,7 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
-    return queryInterface.bulkInsert('Tasks', [{
+    return queryInterface.bulkInsert('Todos', [{
       name: '測試 A',
       done: false,
       createdAt : new Date(),

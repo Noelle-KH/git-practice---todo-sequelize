@@ -16,7 +16,7 @@ $ git clone ...
 $ cd ...
 $ npm install
 
-# Create a database named todo-sequelize
+# Create a database named todo-sequelize and update config.json
 ```
 
 And then
