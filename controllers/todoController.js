@@ -6,6 +6,8 @@ let todoController = {
   getTodos: (req, res) => {
     return User.findByPk(req.user.id, {include: [Todo]})
       .then((user) => {
+        user = user.get({plain:true})
+
         if (req.params.id) {
           Todo.findByPk(req.params.id).then(todo => {
             return res.render('todos', {todos: user.Todos, todo: todo})
