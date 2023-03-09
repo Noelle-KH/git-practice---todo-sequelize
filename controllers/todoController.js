@@ -66,6 +66,9 @@ let todoController = {
           .catch(error => console.log(error))
       })
       .catch(error => console.log(error))
+  },
+  getTodo: (req, res, next) => {
+    console.log('noelle02 update')
   }
 }
 module.exports = todoController
