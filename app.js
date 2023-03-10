@@ -24,4 +24,5 @@ require('./routes')(app, passport)
 app.listen(port, () => {
   db.sequelize.sync()
   console.log(`Example app listening on port ${port}! http://localhost:${port}`)
+  console.log('0309-玩2')
 })
