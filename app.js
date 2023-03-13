@@ -17,9 +17,15 @@ app.use(session({ secret: 'secret', resave: false, saveUninitialized: false }))
 app.use(passport.initialize())
 app.use(passport.session())
 
-app.listen(port, () => {
-  db.sequelize.sync()
-  console.log(`Example app listening on port ${port}!`)
-})
 
 require('./routes')(app, passport)
+
+// 0309 Lily03 update
+app.listen(port, () => {
+  db.sequelize.sync()
+  console.log(`Example app listening on port ${port}! http://localhost:${port}`)
+  console.log('0309-玩2')
+  console.log('0309-玩2-2')
+  console.log('0309-玩2-3')
+
+})
