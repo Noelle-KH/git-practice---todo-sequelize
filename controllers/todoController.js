@@ -69,6 +69,9 @@ let todoController = {
   },
   getTodo: (req, res, next) => {
     console.log('noelle02 update')
-  }
+  
+    // 0313 noelle03 update
+    console.log('noelle03 update')
+  },
 }
 module.exports = todoController
