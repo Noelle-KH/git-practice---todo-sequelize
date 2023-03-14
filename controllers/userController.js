@@ -13,10 +13,17 @@ let userController = {
   },
   // Lily04 update
   getTopUsers: (req, res) => {
+
     // Lily04 update-2
     const controller = req.userController
     const data = req.User
 
+    return User.findAll()
+      .then((users) => res.json(users))
+      .catch(error => console.log(error))
+  },
+  // Lily05 update
+  editUser: (req, res) => {
     return User.findAll()
       .then((users) => res.json(users))
       .catch(error => console.log(error))
