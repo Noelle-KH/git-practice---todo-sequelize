@@ -10,6 +10,18 @@ let userController = {
   // Lily02 update
   getUser: (req,res) => {
     res.render('todos')
-  }
+  },
+  // Lily04 update
+  getTopUsers: (req, res) => {
+    return User.findAll()
+      .then((users) => res.json(users))
+      .catch(error => console.log(error))
+  },
+  // Lily05 update
+  editUser: (req, res) => {
+    return User.findAll()
+      .then((users) => res.json(users))
+      .catch(error => console.log(error))
+  },
 }
 module.exports = userController
