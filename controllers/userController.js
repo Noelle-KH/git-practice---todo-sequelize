@@ -16,6 +16,12 @@ let userController = {
     return User.findAll()
       .then((users) => res.json(users))
       .catch(error => console.log(error))
-  }
+  },
+  // Lily05 update
+  editUser: (req, res) => {
+    return User.findAll()
+      .then((users) => res.json(users))
+      .catch(error => console.log(error))
+  },
 }
 module.exports = userController
