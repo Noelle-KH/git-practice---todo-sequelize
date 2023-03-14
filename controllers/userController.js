@@ -7,8 +7,8 @@ let userController = {
       .then((users) => res.json(users))
       .catch(error => console.log(error))
   },
-  // Lily02 update
-  getUser: (req,res) => {
+  // Lily02 update, Lily04-3
+  getUseryoooooo: (req,res) => {
     res.render('todos')
   },
   // Lily04 update
